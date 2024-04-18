@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en</header>">
+<html lang="en"></html></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: black; /* Set the background color to black */
         }
-        
 
         header {
             background-color: #eb85e1;
@@ -18,70 +18,92 @@
             padding: 20px;
             text-align: left;
             display: flex;
-            align-items: center; /* Align items vertically */
-            justify-content: flex-start; /* Align items horizontally to the left */
-     }
-     
+            align-items: center;
+            justify-content: flex-start;
+            opacity: 0; /* Initially hide the header */
+            animation: fade-in 2s forwards; /* Apply fade-in animation */
+            overflow-y: scroll; /* Enable vertical scrolling */
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
         h1 {
             margin: 0;
-     }
+        }
 
 
         h2 {
-        margin: 0;
-        margin-left: auto;
-        margin-bottom: 10px;
-     }
+            margin: 0;
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
 
 
         h3 {
-        margin-top: 10px; 
-     }
+            margin-top: 10px; 
+        }
 
 
         .profile-image {
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 100vh;
             margin-right: 10px;
-            border-radius: 50%;
+            border-radius: 0;
             cursor: pointer; 
-     }
-        
+            transition: all 0.5s ease; /* Add transition for smooth resizing */
+        }
+
+        .profile-image.small {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 0;
+            margin-left: -50px;
+        }
+
 
         main {
             padding: 20px;
-     }
-        
+        }
+
 
         .social-links {
             list-style: none;
             padding: 0;
             display: block; 
             text-align: center;
-     }
-        
+        }
+
 
         .social-links li {
             margin: 10px;
-     }
+        }
 
-        
+
         .social-links a {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             color: #333;
-     }
+        }
 
-        
+
         .social-links img {
             width: 50px;
             height: 50px;
             margin-bottom: 10px;
             cursor: pointer; /* Add cursor pointer to indicate it's clickable */
-     }
+            opacity: 0; /* Initially hide the icons */
+            transition: opacity 0.5s ease; /* Add transition for smooth appearance */
+        }
 
 
         footer {
@@ -89,16 +111,14 @@
             color: #fff;
             padding: 20px;
             text-align: center;
-     }
+        }
     </style>
 </head>
 <body>
     <header>
-            <img class="profile-image" src="pfp.png" alt="Profile Picture">
+        <img class="profile-image" src="pfp.png" alt="Profile Picture">
         <!-- Change these fields to show your information -->
         <h1>YeahJoshy Social Links</h1>
-        <h2>Pronouns:</h2>  
-        <h3>hg</h3>
     </header>
     <main>
         <ul class="social-links">
@@ -139,5 +159,40 @@
     <footer>
         <p>&copy; Made by YeahJoshy in 2024. Feel free to copy and use as own, code is avaliable on my github. Accreditation is required.</p> <!-- Display footer text -->
     </footer>
+    <script>
+    window.addEventListener('scroll', function() {
+        var header = document.querySelector('header');
+        var logo = document.querySelector('.profile-image');
+        var logoPosition = logo.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var scrollPosition = window.scrollY;
+
+        var scale = 1 - (scrollPosition / (windowHeight / 2)); // Calculate the scale factor
+
+        logo.style.transform = 'scale(' + scale + ')'; // Apply the scale transformation
+
+        if (logoPosition < windowHeight / 2) {
+            header.style.opacity = '1';
+        } else {
+            header.style.opacity = '0';
+        }
+
+        var icons = document.querySelectorAll('.social-links img');
+        icons.forEach(function(icon) {
+            if (scrollPosition > logoPosition) {
+                icon.style.opacity = '1';
+            } else {
+                icon.style.opacity = '0'; // Reset the opacity when scrolling back up
+            }
+        });
+
+        if (scale < 0.5) {
+            logo.classList.add('small');
+        } else {
+            logo.classList.remove('small');
+        }
+    });
+
+    </script>
 </body>
 </html>
