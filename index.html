@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: black; /* Set the background color to black */
+            background-color: #fff;
         }
 
         header {
@@ -20,9 +20,9 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            opacity: 0; /* Initially hide the header */
-            animation: fade-in 2s forwards; /* Apply fade-in animation */
-            overflow-y: scroll; /* Enable vertical scrolling */
+            opacity: 0; 
+            animation: fade-in 2s forwards; 
+            overflow-y: scroll; 
         }
 
         @keyframes fade-in {
@@ -57,7 +57,7 @@
             margin-right: 10px;
             border-radius: 0;
             cursor: pointer; 
-            transition: all 0.5s ease; /* Add transition for smooth resizing */
+            transition: all 0.5s ease;
         }
 
         .profile-image.small {
@@ -100,9 +100,9 @@
             width: 50px;
             height: 50px;
             margin-bottom: 10px;
-            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
-            opacity: 0; /* Initially hide the icons */
-            transition: opacity 0.5s ease; /* Add transition for smooth appearance */
+            cursor: pointer; 
+            opacity: 0;
+            transition: opacity 0.5s ease; 
         }
 
 
@@ -117,22 +117,17 @@
 <body>
     <header>
         <img class="profile-image" src="pfp.png" alt="Profile Picture">
-        <!-- Change these fields to show your information -->
         <h1>YeahJoshy Social Links</h1>
     </header>
     <main>
         <ul class="social-links">
             <li>
-                <!-- Link to Twitch -->
                 <a href="https://www.twitch.tv/yeahjoshy"></a>
-                    <!-- Display Twitch logo -->
                     <img src="twitch-logo.png" alt="Twitch">
                     <span>Twitch</span>
             </li>
             <li>
-                    <!-- Link to Twitter -->
                 <a href="https://www.twitter.com/@yeahjoshy_"></a>
-                    <!-- Display Twitter icon -->
                     <img src="twitter-icon.png" alt="Twitter"> 
                     <span>Twitter</span>
             </li>           
@@ -157,8 +152,8 @@
         </ul>
     </main>
     <footer>
-        <p>&copy; Made by YeahJoshy in 2024. Feel free to copy and use as own, code is avaliable on my github. Accreditation is required.</p> <!-- Display footer text -->
-    </footer>
+        <p>&copy; Made by YeahJoshy in 2024. Feel free to copy and use as own, code is avaliable on my github. Accreditation is required.</p>
+    </footer> 
     <script>
     window.addEventListener('scroll', function() {
         var header = document.querySelector('header');
@@ -167,9 +162,9 @@
         var windowHeight = window.innerHeight;
         var scrollPosition = window.scrollY;
 
-        var scale = 1 - (scrollPosition / (windowHeight / 2)); // Calculate the scale factor
+        var scale = 1 - (scrollPosition / (windowHeight / 2)); 
 
-        logo.style.transform = 'scale(' + scale + ')'; // Apply the scale transformation
+        logo.style.transform = 'scale(' + scale + ')';
 
         if (logoPosition < windowHeight / 2) {
             header.style.opacity = '1';
@@ -182,7 +177,7 @@
             if (scrollPosition > logoPosition) {
                 icon.style.opacity = '1';
             } else {
-                icon.style.opacity = '0'; // Reset the opacity when scrolling back up
+                icon.style.opacity = '0'; 
             }
         });
 
