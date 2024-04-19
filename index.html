@@ -173,6 +173,10 @@ footer {
 
         var scale = 1 - (scrollPosition / (windowHeight / 2)); 
 
+        if (scale < 0) {
+            scale = 0;
+        }
+
         logo.style.transform = 'scale(' + scale + ')';
 
         if (logoPosition < windowHeight / 2) {
