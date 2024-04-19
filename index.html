@@ -173,11 +173,7 @@ footer {
 
         var scale = 1 - (scrollPosition / (windowHeight / 2)); 
 
-        if (scale < 0) {
-            scale = 0;
-        }
-
-        logo.style.transform = 'scale(' + scale + ')';
+        
 
         if (logoPosition < windowHeight / 2) {
             header.style.opacity = '1';
@@ -196,11 +192,13 @@ footer {
 
         if (scale < 0.5) {
             logo.classList.add('small');
+            logo.style.transform = 'none';
         } else {
             logo.classList.remove('small');
+            logo.style.transform = 'scale(' + scale + ')';
         }
     });
 
     </script>
-</body>
+    </body>
 </html>
