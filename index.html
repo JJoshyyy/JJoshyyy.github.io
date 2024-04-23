@@ -60,7 +60,7 @@ h3 {
 
 .profile-image {
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100%;
     margin-right: 10px;
     border-radius: 0;
     cursor: pointer; 
@@ -80,14 +80,18 @@ main {
     padding: 0px;
     margin-top: 1000px;
     margin-bottom: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .social-links {
     list-style: none;
     padding: 0;
-    display: block; 
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -106,8 +110,8 @@ main {
 
 
 .social-links img {
-    width: 50px;
-    height: 50px;
+    width: 100px; 
+    height: 100px; 
     margin-bottom: 10px;
     cursor: pointer; 
 
@@ -134,7 +138,9 @@ footer {
         align-items: center;
         ">
         <div>
-        <img class="profile-image" src="pfp.png" alt="Profile Picture">
+        <a href="https://www.twitch.tv/yeahjoshy">
+            <img class="profile-image" src="pfp.png" alt="Profile Picture">
+        </a>
     </div>
         <div>
         <h1>YeahJoshy Social Links</h1>
@@ -158,39 +164,42 @@ footer {
         <ul class="social-links">
             <li>
                 <div>
-                <a href="https://www.twitch.tv/yeahjoshy"></a>
+                <a href="https://www.twitch.tv/yeahjoshy">
                     <img src="twitch-logo.png" alt="Twitch">
                     <span>Twitch</span>
+                </a>
                 </div>
             </li>
             <li>
                 <div>
-                <a href="https://www.twitter.com/@yeahjoshy_"></a>
+                <a href="https://www.twitter.com/@yeahjoshy_">
                     <img src="twitter-icon.png" alt="Twitter"> 
-                    Twitter
+                    <span>Twitter</span>
+                </a>
                 </div>
             </li>           
                 <li>
                     <div>
-                    <a href="https://github.com/JJoshyyy"></a>
+                    <a href="https://github.com/JJoshyyy">
                         <img src="github.png" alt="Example"> 
                         <span>GitHub</span>
+                    </a>
                     </div>
                 </li>
                 <li>
                     <div>
-                    <a href="https://www.youtube.com/channel/UCB5KjALJBchw0g3bzFRs_mQ"></a>
+                    <a href="https://www.youtube.com/channel/UCB5KjALJBchw0g3bzFRs_mQ">
                         <img src="youtube.png" alt="Example"> 
                         <span>YouTube</span>
-                    </div>
                     </a>
-                </a>
+                    </div>
                 </li>
             <!-- Template to add more links in
             <li>
-                <a href="https://www.example.com"></a>
+                <a href="https://www.example.com">
                     <img src="example-icon.png" alt="Example"> 
                     <span>Example</span>
+                </a>
             </li>
             -->
         </ul>
