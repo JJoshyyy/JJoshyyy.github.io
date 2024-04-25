@@ -22,7 +22,6 @@ header {
     align-items: center;
     justify-content: flex-start;
     opacity: 0; 
-    animation: fade-in 2s forwards; 
     overflow-y: scroll; 
     position: fixed;
     height: auto;
@@ -119,8 +118,11 @@ main {
     height: 100px; 
     margin-bottom: 10px;
     cursor: pointer; 
-
+    opacity: 0; 
+    transform: translateX(100%);
 }
+
+
 header div {
     margin: 5px;
 }
@@ -236,8 +238,10 @@ footer {
         icons.forEach(function(icon) {
             if (scrollPosition > logoPosition) {
                 icon.style.opacity = '1';
+                icon.style.transform = 'translateX(0)'; /* Add this line to animate the social links sliding in from right to left */
             } else {
                 icon.style.opacity = '0'; 
+                icon.style.transform = 'translateX(100%)'; /* Add this line to move the social links off-screen when scrolling up */
             }
         });
 
